@@ -33,8 +33,6 @@ public class SyncProducer {
             //5.发送消息
             SendResult sendResult = producer.send(message);
 
-
-
             //发送状态
             SendStatus sendStatus = sendResult.getSendStatus();
             //消息id
@@ -43,9 +41,6 @@ public class SyncProducer {
             int queueId = sendResult.getMessageQueue().getQueueId();
 
             System.out.println("消息发送状态：" + sendResult + ",消息id：" + msgId + "，消息队列id：" + queueId);
-
-            //TimeUnit.SECONDS.sleep(1);
-
 
         }
 

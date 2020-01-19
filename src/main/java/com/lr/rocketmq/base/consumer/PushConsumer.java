@@ -5,6 +5,7 @@ import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.common.message.MessageExt;
+import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +20,9 @@ public class PushConsumer {
     public static void main(String[] args) throws Exception{
 
         //1.创建消费者Consumer，制定消费者组名
+        /**
+         * 设置这个组名的原因是为了同一个组的消费者可以负载均衡的消费订阅的同一个topic和tag消息。
+         */
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group1");
 
         //2.指定NameServer地址
@@ -26,6 +30,10 @@ public class PushConsumer {
 
         //3.订阅主题Topic和Tag
         consumer.subscribe("baseTopic", "baseTop");
+
+        //设置消费模式：负载均衡和广播模式
+
+        consumer.setMessageModel(MessageModel.BROADCASTING);
 
         //4.设置回调函数，处理消息
         consumer.registerMessageListener(new MessageListenerConcurrently() {

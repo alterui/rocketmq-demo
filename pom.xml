@@ -10,13 +10,14 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>producer</module>
+        <module>consumer</module>
     </modules>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
-            <version>4.4.0</version>
+            <version>4.5.1</version>
         </dependency>
 
 

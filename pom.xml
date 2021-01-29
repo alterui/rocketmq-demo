@@ -13,7 +13,7 @@
         <module>consumer</module>
         <module>interface</module>
         <module>dubbo-producer</module>
-        <module>dubbo-consumer</module>
+
     </modules>
 
     <dependencies>

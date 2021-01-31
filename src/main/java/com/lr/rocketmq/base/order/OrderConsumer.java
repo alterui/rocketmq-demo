@@ -18,7 +18,7 @@ public class OrderConsumer {
         System.out.println("开始");
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group9");
 
-        consumer.setNamesrvAddr("192.168.47.130:9876;192.168.47.129:9876");
+        consumer.setNamesrvAddr("192.168.47.130:9876");
         consumer.subscribe("orderTopic", "orderTag");
 
         /**

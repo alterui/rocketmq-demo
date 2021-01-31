@@ -15,10 +15,11 @@ import java.util.List;
  */
 public class OrderConsumer {
     public static void main(String[] args) throws  Exception{
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group");
+        System.out.println("开始");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group9");
 
-        consumer.setNamesrvAddr("192.168.43.128:9876;192.168.43.129:9876");
-        consumer.subscribe("orderTopic", "*");
+        consumer.setNamesrvAddr("192.168.47.130:9876;192.168.47.129:9876");
+        consumer.subscribe("orderTopic", "orderTag");
 
         /**
          * 使用顺序消费

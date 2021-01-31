@@ -16,7 +16,7 @@ public class OneWayProducer {
         //1.创建消息生产者producer，并制定生产者组名
         DefaultMQProducer producer = new DefaultMQProducer("group1");
         //2.指定NameServer地址
-        producer.setNamesrvAddr("192.168.43.129:9876;192.168.43.128:9876;192.168.43.127:9876");
+        producer.setNamesrvAddr("192.168.47.129:9876;192.168.47.130:9876");
         //3.启动producer
         producer.start();
         //4.创建消息对象，指定主题Topic、Tag和消息体

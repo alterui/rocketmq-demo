@@ -17,10 +17,11 @@ import java.util.concurrent.TimeUnit;
 
 public class OrderProducer {
     public static void main(String[] args) throws Exception{
-        DefaultMQProducer producer = new DefaultMQProducer("group");
+        DefaultMQProducer producer = new DefaultMQProducer("group9");
 
-        producer.setNamesrvAddr("192.168.43.128:9876;132.168.43.129:9876");
+        producer.setNamesrvAddr("192.168.47.130:9876;192.168.47.129:9876");
         producer.start();
+
 
         OrderStep orderStep = new OrderStep();
         List<OrderStep> orderStepList = orderStep.buildOrders();
@@ -43,13 +44,13 @@ public class OrderProducer {
                      */
                     long orderId = (Long) o;
                     long index = orderId % list.size();
+                    System.out.println(index);
                     return list.get((int) index);
                 }
             }, order.getOrderId());
 
             System.out.println("发送消息："+ send);
 
-            TimeUnit.SECONDS.sleep(1);
 
         }
 

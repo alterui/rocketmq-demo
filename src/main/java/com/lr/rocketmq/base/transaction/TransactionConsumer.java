@@ -17,7 +17,7 @@ public class TransactionConsumer {
     public static void main(String[] args) throws Exception{
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group");
 
-        consumer.setNamesrvAddr("192.168.43.129:9876;192.168.43.128:9876");
+        consumer.setNamesrvAddr("192.168.47.129:9876;192.168.47.130:9876");
 
         consumer.subscribe("transactionTopic", "*");
 

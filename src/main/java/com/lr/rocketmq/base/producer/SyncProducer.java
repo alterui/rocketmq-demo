@@ -18,7 +18,7 @@ public class SyncProducer {
         //1.创建消息生产者producer，并制定生产者组名
         DefaultMQProducer producer = new DefaultMQProducer("group1");
         //2.指定NameServer地址
-        producer.setNamesrvAddr("192.168.43.129:9876;192.168.43.128:9876;192.168.43.127:9876");
+        producer.setNamesrvAddr("192.168.47.129:9876;192.168.47.130:9876");
         //3.启动producer
         producer.start();
         //4.创建消息对象，指定主题Topic、Tag和消息体
@@ -28,7 +28,7 @@ public class SyncProducer {
             /**
              * todo 这里发现一个神奇的问题，topic的名字设置为‘XX1’的话，就只消费一个broker_a
              */
-            Message message = new Message("baseTopic", "baseTop", ("hello world" + i).getBytes());
+            Message message = new Message("baseTopic", "baseTag", ("hello world" + i).getBytes());
 
             //5.发送消息
             SendResult sendResult = producer.send(message);
@@ -40,7 +40,8 @@ public class SyncProducer {
             //消息队列id
             int queueId = sendResult.getMessageQueue().getQueueId();
 
-            System.out.println("消息发送状态：" + sendResult + ",消息id：" + msgId + "，消息队列id：" + queueId);
+            System.out.println("消息发送状态：" + sendResult);
+            TimeUnit.SECONDS.sleep(1);
 
         }
 

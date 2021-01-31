@@ -12,7 +12,7 @@ public class DelayProducer {
     public static void main(String[] args) throws Exception{
         DefaultMQProducer producer = new DefaultMQProducer("group");
 
-        producer.setNamesrvAddr("192.168.43.129:9876;192.168.43.128:9876");
+        producer.setNamesrvAddr("192.168.47.129:9876;192.168.47.130:9876");
 
         producer.start();
 

@@ -17,12 +17,12 @@ public class AsyncProducer {
     public static void main(String[] args) throws Exception{
         DefaultMQProducer producer = new DefaultMQProducer("group3");
 
-        producer.setNamesrvAddr("192.168.43.128:9876;192.168.43.129:9876");
+        producer.setNamesrvAddr("192.168.47.130:9876;192.168.47.129:9876");
         producer.start();
 
 
         for (int i = 1; i <= 10; i++) {
-            Message message = new Message("baseTopic", "baseTop2", ("hello world" + i).getBytes());
+            Message message = new Message("baseTopic", "baseTag2", ("hello world" + i).getBytes());
 
             producer.send(message, new SendCallback() {
                 public void onSuccess(SendResult sendResult) {

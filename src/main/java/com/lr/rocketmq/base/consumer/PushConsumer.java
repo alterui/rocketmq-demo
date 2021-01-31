@@ -26,12 +26,12 @@ public class PushConsumer {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group1");
 
         //2.指定NameServer地址
-        consumer.setNamesrvAddr("192.168.43.128:9876;192.168.43.129:9876");
+        consumer.setNamesrvAddr("192.168.47.130:9876;192.168.47.129:9876");
 
         //3.订阅主题Topic和Tag
-        consumer.subscribe("baseTopic", "baseTop");
+        consumer.subscribe("baseTopic", "baseTag");
 
-        //设置消费模式：负载均衡和广播模式
+        //设置消费模式：负载均衡(默认)和广播模式
 
         consumer.setMessageModel(MessageModel.BROADCASTING);
 

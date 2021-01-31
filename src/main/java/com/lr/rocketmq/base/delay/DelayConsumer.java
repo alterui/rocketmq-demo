@@ -18,7 +18,7 @@ public class DelayConsumer {
 
         consumer.setNamesrvAddr("192.168.47.129:9876;192.168.47.130:9876");
 
-        consumer.subscribe("batchTopic", "*");
+        consumer.subscribe("delayTopic", "*");
 
         consumer.registerMessageListener(new MessageListenerConcurrently() {
             public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> list, ConsumeConcurrentlyContext consumeConcurrentlyContext) {

@@ -22,7 +22,8 @@ public class OrderConsumer {
         consumer.subscribe("orderTopic", "orderTag");
 
         /**
-         * 使用顺序消费
+         * 使用顺序消费，只能保证同一个队列的顺序消费；
+         * 因为消费者方有多个线程，去消费queue里面的消息。
          */
         consumer.registerMessageListener(new MessageListenerOrderly() {
             public ConsumeOrderlyStatus consumeMessage(List<MessageExt> list, ConsumeOrderlyContext consumeOrderlyContext) {

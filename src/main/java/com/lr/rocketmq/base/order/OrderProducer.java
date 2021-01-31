@@ -41,6 +41,7 @@ public class OrderProducer {
                 public MessageQueue select(List<MessageQueue> list, Message message, Object o) {
                     /**
                      * 每个Order的订单号相同，把订单号对队列个数进行取模，就能保证一个订单的所有操作都在同一个队列里面。
+                     * 仅仅是放到同一个队列里面去，比如一个broker里面有4个queue，mq将轮询4个queue。
                      */
                     long orderId = (Long) o;
                     long index = orderId % list.size();
